@@ -76,11 +76,16 @@ class FilaPrioridade:
     # caso a fila de prioridade esteja vazia, imprime uma mensagem informando
     # que a fila de prioridade está vazia e retorna uma lista vazia
     def display(self) -> list[tuple()]:
-        # implementação do método
-        pass
+        if self.is_empty():
+            raise Exception("Erro!")
+        list = []
+        iterar = self.__inicio
+        while iterar is not None:
+            list.append((iterar.dado, iterar.prioridade))
+            iterar = iterar.prox
+        return list
 
     # retorna a quantidade de elementos na fila de prioridade
     # se a fila de prioridade estiver vazia, retorna ZERO
     def size(self) -> int:
-        # implementação do método
-        pass
+        return self.__qtdItens
